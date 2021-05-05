@@ -3,26 +3,14 @@
     <h1>Tere tulemast</h1>
     <h2>All asub küsimustik, mille palun ära täita.
       Kirjuta palun kastidesse mängude lõpptulemused</h2>
+    Siia kirjuta oma kasutajanimi:
+    <input v-model.lazy="username" placeholder="Kasutajanimi"/>
     <table>
-      <tr>Mäng nr 1
-        <th>Inglismaa-Argentiina</th>
-        <input v-model="home" placeholder="Inglismaa"/> <input v-model="away" placeholder="Argentiina">
-        <button v-on:click="submit">Esita</button>
-      </tr>
-      <tr>Mäng nr 2
-        <th>Belgia-Läti</th>
-        <input v-model="home" placeholder="Belgia"/> <input v-model="away" placeholder="Läti">
-        <button v-on:click="submit">Esita</button>
-      </tr>
-      <tr>Mäng nr 3
-        <th>Eesti-Iiri</th>
-        <input v-model="home" placeholder="Eesti"/> <input v-model="away" placeholder="Iiri">
-        <button v-on:click="submit">Esita</button>
-      </tr>
-      <tr>Mäng nr 4
-        <th>Taani-Rootsi</th>
-        <input v-model="home" placeholder="Taani"/> <input v-model="away" placeholder="Rootsi">
-        <button v-on:click="submit">Esita</button>
+      <tr v-for="game in gameData" v-bind:key="game.gameNumber">Mäng nr {{ game.gameNumber }}
+        <th>{{ game.text }}</th>
+        <input v-model.number="game.home" placeholder="Inglismaa"/>
+        <input v-model.number="game.away" placeholder="Argentiina">
+        <button v-on:click="insert()">Esita</button>
       </tr>
     </table>
   </div>
@@ -30,7 +18,41 @@
 
 <script>
 export default {
-  name: "Ankeet"
+  data: function () {
+    return {
+      'gameData': [
+        {
+          'gameNumber': 1,
+          'text': 'Inglismaa-Argentiina'
+        },
+        {
+          'gameNumber': 2,
+          'text': 'Belgia-Läti'
+        },
+        {
+          'gameNumber': 3,
+          'text': 'Eesti-Iiri'
+        },
+        {
+          'gameNumber': 4,
+          'text': 'Taani-Rootsi'
+        },
+        {
+          'gameNumber': 5,
+          'text': 'Taani-Eesti'
+        },
+      ]
+    }
+  },
+  methods: {
+    'insert': function () {
+      this.$http.post("http://localhost:8080/insert/" +
+          this.username + '/' + this.gameNumber + '/' + this.game.home + '/' + this.game.away)
+          .then(response => {
+            console.log(response);
+          })
+    }
+  }
 }
 </script>
 
