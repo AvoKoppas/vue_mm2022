@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import MM2022 from "../views/MM2022.vue";
+import Ankeet from '../views/Ankeet'
 
 Vue.use(VueRouter)
 
@@ -16,7 +17,11 @@ const routes = [
         name: 'MM2022',
         component: MM2022
     },
-
+    {
+        path: '/Ankeet',
+        name: 'Ankeet',
+        component: Ankeet
+    },
     {
         path: '/about',
         name: 'About',
