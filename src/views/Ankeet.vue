@@ -7,10 +7,12 @@
       <tr>Mäng nr 1
         <th>Inglismaa-Argentiina</th>
         <input v-model="home" placeholder="Inglismaa"/> <input v-model="away" placeholder="Argentiina">
+        <button v-on:click="submit">Esita</button>
       </tr>
       <tr>Mäng nr 2
         <th>Belgia-Läti</th>
         <input v-model="home" placeholder="Belgia"/> <input v-model="away" placeholder="Läti">
+        <button v-on:click="submit">Esita</button>
       </tr>
       <tr>Mäng nr 3
         <th>Eesti-Iiri</th>
@@ -23,7 +25,6 @@
         <button v-on:click="submit">Esita</button>
       </tr>
     </table>
-    <button v-on:click="submit">Esita</button>
   </div>
 </template>
 
