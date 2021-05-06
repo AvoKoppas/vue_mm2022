@@ -1,3 +1,4 @@
+
 <template>
   <div class="list">
     <h1>Edetabel</h1>
@@ -80,3 +81,5 @@ methods: {
 <style scoped>
 
 </style>
+
+

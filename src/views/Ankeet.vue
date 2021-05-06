@@ -3,26 +3,13 @@
     <h1>Tere tulemast</h1>
     <h2>All asub küsimustik, mille palun ära täita.
       Kirjuta palun kastidesse mängude lõpptulemused</h2>
+    Siia kirjuta oma kasutajanimi<input v-model.number="username" placeholder="Kasutajanimi"/>
     <table>
-      <tr>Mäng nr 1
-        <th>Inglismaa-Argentiina</th>
-        <input v-model="home" placeholder="Inglismaa"/> <input v-model="away" placeholder="Argentiina">
-        <button v-on:click="submit">Esita</button>
-      </tr>
-      <tr>Mäng nr 2
-        <th>Belgia-Läti</th>
-        <input v-model="home" placeholder="Belgia"/> <input v-model="away" placeholder="Läti">
-        <button v-on:click="submit">Esita</button>
-      </tr>
-      <tr>Mäng nr 3
-        <th>Eesti-Iiri</th>
-        <input v-model="home" placeholder="Eesti"/> <input v-model="away" placeholder="Iiri">
-        <button v-on:click="submit">Esita</button>
-      </tr>
-      <tr>Mäng nr 4
-        <th>Taani-Rootsi</th>
-        <input v-model="home" placeholder="Taani"/> <input v-model="away" placeholder="Rootsi">
-        <button v-on:click="submit">Esita</button>
+      <tr v-for="game in gameData" v-bind:key="game.gameNumber">Mäng nr {{ game.gameNumber }}
+        <th>{{ game.text }}</th>
+        <input v-model.number="game.home" :placeholder=game.text1>
+        <input v-model.number="game.away" :placeholder=game.text2>
+        <button v-on:click="insert(game)">Esita</button>
       </tr>
     </table>
   </div>
@@ -30,7 +17,49 @@
 
 <script>
 export default {
-  name: "Ankeet"
+  data: function () {
+    return {
+      'gameData': [
+        {
+          'gameNumber': 1,
+          'text': 'Inglismaa-Argentiina',
+          'text1': 'Inglismaa',
+          'text2': 'Argentiina'
+        },
+        {
+          'gameNumber': 2,
+          'text': 'Läti-Leedu',
+          'text1': 'Läti',
+          'text2': 'Leedu'
+        },
+        {
+          'gameNumber': 3,
+          'text': 'Rootsi-Taani',
+          'text1': 'Rootsi',
+          'text2': 'Taani'
+        },
+      ],
+      // 'username': '',
+      // 'userName2':'',
+      // 'score': [
+      //   {
+      //
+      //   }
+      // ]
+    }
+  },
+  methods: {
+    'insert': function (game) {
+      this.$http.post("http://localhost:8080/insert/" +
+          this.username + '/' + game.gameNumber + '/' + game.home + '/' + game.away)
+          .then(response => {
+            console.log(response);
+          })
+    },
+    // 'calculate':function (score){
+    //   this.$http.post("http://localhost:8080/calculateScore/" + this.username2)
+    // }
+  }
 }
 </script>
 
