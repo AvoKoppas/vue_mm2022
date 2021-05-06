@@ -38,20 +38,14 @@ export default {
           'text1': 'Rootsi',
           'text2': 'Taani'
         },
-        {
-          'gameNumber': 4,
-          'text': 'Holland-Belgia',
-          'text1': 'Holland',
-          'text2': 'Belgia'
-        },
-        {
-          'gameNumber': 5,
-          'text': 'Peruu-Brasiilia',
-          'text1': 'Peruu',
-          'text2': 'Brasiilia'
-        },
       ],
-      'username': ''
+      // 'username': '',
+      // 'userName2':'',
+      // 'score': [
+      //   {
+      //
+      //   }
+      // ]
     }
   },
   methods: {
@@ -61,7 +55,10 @@ export default {
           .then(response => {
             console.log(response);
           })
-    }
+    },
+    // 'calculate':function (score){
+    //   this.$http.post("http://localhost:8080/calculateScore/" + this.username2)
+    // }
   }
 }
 </script>
