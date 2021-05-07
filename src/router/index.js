@@ -3,6 +3,9 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import MM2022 from "../views/MM2022.vue";
 import Ankeet from '../views/Ankeet'
+import Vuetify from 'vuetify/lib/util/colors'
+
+Vue.use(Vuetify)
 
 Vue.use(VueRouter)
 
@@ -30,6 +33,7 @@ const routes = [
         // which is lazy-loaded when the route is visited.
         component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
     }
+
 ]
 
 const router = new VueRouter({
