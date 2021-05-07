@@ -4,7 +4,7 @@
     Sisesta kasutajanimi <input v-model="username1" placeholder="Kasutajanimi"/>
     <!--    Sisesta mängudearv <input v-model="gameNr" placeholder="Mängud"/>-->
     <button v-on:click="calculate()">Punktid</button>
-    {{username1}} sul on {{ scoreAnswer }} punkti
+    {{ username1 }} sul on {{ scoreAnswer }} punkti
     <h1> Edetabel</h1>
     <button v-on:click="gameScore()">Refresh</button>
     <table>
@@ -17,7 +17,6 @@
         <td align="left">{{ userName.score }}</td>
       </tr>
     </table>
-
   </div>
 </template>
 

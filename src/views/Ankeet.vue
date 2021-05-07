@@ -1,9 +1,7 @@
 <template>
   <div class="ankeet">
     <h1>Tere tulemast</h1>
-
-    <body style="background-color: crimson">
-
+    <body style="background-color: seashell">
     <h3>All asub küsimustik, mille palun ära täita.
       Kirjuta palun kastidesse mängude lõpptulemused</h3>
     Siia kirjuta oma kasutajanimi<input v-model.number="username" placeholder="Kasutajanimi"/>
@@ -12,7 +10,7 @@
         <th>{{ game.text }}</th>
         <input v-model.number="game.home" :placeholder=game.text1>
         <input v-model.number="game.away" :placeholder=game.text2>
-        <button v-on:click="insert(game)">Esita</button>
+        <button id="button" v-on:click="insert(game)">Esita</button>
       </tr>
     </table>
     </body>
@@ -54,13 +52,6 @@ export default {
           'text2': 'USA'
         },
       ],
-      // 'username': '',
-      // 'userName2':'',
-      // 'score': [
-      //   {
-      //
-      //   }
-      // ]
     }
   },
   methods: {
@@ -71,9 +62,6 @@ export default {
             console.log(response);
           })
     },
-    // 'calculate':function (score){
-    //   this.$http.post("http://localhost:8080/calculateScore/" + this.username2)
-    // }
   }
 }
 </script>
