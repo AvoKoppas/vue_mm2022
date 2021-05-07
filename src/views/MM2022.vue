@@ -34,7 +34,7 @@ export default {
       this.$http.get('http://localhost:8080/scoreList/')
           .then(response => {
             console.log(response);
-            this.scoreTable = response.data
+            this.scoreTable = response.data.sort()
           })
     }
   }
