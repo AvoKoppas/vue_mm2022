@@ -1,5 +1,5 @@
 <template>
-  <div class="ankeet">
+  <div style="background: lightblue; border:gold" class="ankeet">
     <h1>Tere tulemast</h1>
     <body style="background-color: seashell">
     <h3>All asub küsimustik, mille palun ära täita.
@@ -21,6 +21,7 @@
 export default {
   data: function () {
     return {
+      'username': '',
       'gameData': [
         {
           'gameNumber': 1,
