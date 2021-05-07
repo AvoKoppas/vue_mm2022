@@ -2,6 +2,21 @@
   <div class="list">
     <h1>Arvuta ise oma punktid</h1>
     Sisesta kasutajanimi <input v-model="username1" placeholder="Kasutajanimi"/>
+
+    <button v-on:click="calculate()">Punktid</button>
+    <br>
+    {{ username1 }} sul on {{ scoreAnswer }} punkti
+    <h1> Edetabel</h1>
+    <button v-on:click="gameScore()">Refresh</button>
+    <table align="center">
+      <tr>
+        <th>Kasutaja</th>
+        <th>Punktid</th>
+      </tr>
+      <tr v-for="userName in scoreTable" v-bind:key="userName.userName">
+        <td>{{ userName.userName }}</td>
+        <td>{{ userName.score }}</td>
+=======
     <!--    Sisesta mängudearv <input v-model="gameNr" placeholder="Mängud"/>-->
     <button v-on:click="calculate()">Arvuta punktid</button>
     {{username1}} sul on {{ scoreAnswer }} punkti
@@ -17,7 +32,6 @@
         <td align="centre">{{ userName.score }}</td>
       </tr>
     </table>
-
   </div>
 </template>
 
@@ -40,7 +54,6 @@ export default {
       'scoreTable': '',
       'scoreAnswer': '',
       'username1': '',
-      // 'gameNr': ''
     }
 
   },
@@ -49,15 +62,15 @@ export default {
       this.$http.get('http://localhost:8080/scoreList/')
           .then(response => {
             console.log(response);
-            this.scoreTable = response.data.sort()
+            this.scoreTable = response.data
           })
     },
     'calculate': function () {
       this.$http.post('http://localhost:8080/calculateScore/' + this.username1)
           .then(response => {
             console.log(response);
-            this.scoreAnswer = response.data
             alert("Tubli " + this.username1 + " sul on " + response.data + " punkti")
+            this.scoreAnswer = response.data
           })
     }
   }
