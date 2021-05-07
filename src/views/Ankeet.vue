@@ -1,7 +1,9 @@
 <template>
   <div class="ankeet">
-
     <h1>Tere tulemast</h1>
+
+    <body style="background-color: crimson">
+
     <h3>All asub küsimustik, mille palun ära täita.
       Kirjuta palun kastidesse mängude lõpptulemused</h3>
     Siia kirjuta oma kasutajanimi<input v-model.number="username" placeholder="Kasutajanimi"/>
@@ -13,6 +15,7 @@
         <button v-on:click="insert(game)">Esita</button>
       </tr>
     </table>
+    </body>
   </div>
 </template>
 
@@ -38,6 +41,17 @@ export default {
           'text': 'Rootsi-Taani',
           'text1': 'Rootsi',
           'text2': 'Taani'
+        },
+        {
+          'gameNumber': 4,
+          'text': 'Iisrael-Iraan',
+          'text1': 'Iisrael',
+          'text2': 'Iraan'
+        }, {
+          'gameNumber': 5,
+          'text': 'LAV-USA',
+          'text1': 'LAV',
+          'text2': 'USA'
         },
       ],
       // 'username': '',

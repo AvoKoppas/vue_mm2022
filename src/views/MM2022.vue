@@ -1,12 +1,11 @@
-
 <template>
   <div class="list">
-    <h1>Edetabel</h1>
-    <h1 align="right">Arvuta ise oma punktid</h1>
-    Sisesta kasutajanimi, millele soovid punkte arvutada: <input type="text" >
-    <button v-on:click="calculate()"></button>
-    <!--        <input v-model.number="score">
-            <input v-model="user_name">-->
+    <h1>Arvuta ise oma punktid</h1>
+    Sisesta kasutajanimi <input v-model="username1" placeholder="Kasutajanimi"/>
+    <!--    Sisesta mängudearv <input v-model="gameNr" placeholder="Mängud"/>-->
+    <button v-on:click="calculate()">Punktid</button>
+    {{username1}} sul on {{ scoreAnswer }} punkti
+    <h1> Edetabel</h1>
     <button v-on:click="gameScore()">Refresh</button>
     <table>
       <tr>
@@ -28,7 +27,10 @@ export default {
     return {
       'score': '',
       'user': '',
-      'scoreTable': ''
+      'scoreTable': '',
+      'scoreAnswer': '',
+      'username1': '',
+      // 'gameNr': ''
     }
 
   },
@@ -38,6 +40,14 @@ export default {
           .then(response => {
             console.log(response);
             this.scoreTable = response.data.sort()
+          })
+    },
+    'calculate': function () {
+      this.$http.post('http://localhost:8080/calculateScore/' + this.username1)
+          .then(response => {
+            console.log(response);
+            this.scoreAnswer = response.data
+            alert("Tubli " + this.username1 + " sul on " + response.data + " punkti")
           })
     }
   }
