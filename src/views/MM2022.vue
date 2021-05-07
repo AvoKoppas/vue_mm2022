@@ -2,6 +2,9 @@
 <template>
   <div class="list">
     <h1>Edetabel</h1>
+    <h1 align="right">Arvuta ise oma punktid</h1>
+    Sisesta kasutajanimi, millele soovid punkte arvutada: <input type="text" >
+    <button v-on:click="calculate()"></button>
     <!--        <input v-model.number="score">
             <input v-model="user_name">-->
     <button v-on:click="gameScore()">Refresh</button>
