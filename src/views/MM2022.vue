@@ -8,7 +8,6 @@
     {{ username1 }} sul on {{ scoreAnswer }} punkti
     <h1> Edetabel</h1>
     <button v-on:click="gameScore()">Refresh</button>
-    <table align="center">
       <tr>
         <th>Kasutaja</th>
         <th>Punktid</th>
@@ -16,7 +15,7 @@
       <tr v-for="userName in scoreTable" v-bind:key="userName.userName">
         <td>{{ userName.userName }}</td>
         <td>{{ userName.score }}</td>
-=======
+      </tr>
     <!--    Sisesta mängudearv <input v-model="gameNr" placeholder="Mängud"/>-->
     <button v-on:click="calculate()">Arvuta punktid</button>
     {{username1}} sul on {{ scoreAnswer }} punkti
