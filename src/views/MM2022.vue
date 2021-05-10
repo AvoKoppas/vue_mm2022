@@ -8,6 +8,7 @@
     {{ username1 }} sul on {{ scoreAnswer }} punkti
     <h1> Edetabel</h1>
     <button v-on:click="gameScore()">Refresh</button>
+    <table align="center">
       <tr>
         <th>Kasutaja</th>
         <th>Punktid</th>
