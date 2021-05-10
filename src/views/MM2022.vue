@@ -46,14 +46,14 @@ export default {
             this.scoreTable = response.data
           })
     },
-    'calculate': function () {
-      this.$http.post('http://localhost:8080/calculateScore/' + this.username1)
-          .then(response => {
-            console.log(response);
-            alert("Tubli " + this.username1 + " sul on " + response.data + " punkti")
-            this.scoreAnswer = response.data
-          })
-    }
+    // 'calculate': function () {
+    //   this.$http.post('http://localhost:8080/calculateScore/' + this.username1)
+    //       .then(response => {
+    //         console.log(response);
+    //         alert("Tubli " + this.username1 + " sul on " + response.data + " punkti")
+    //         this.scoreAnswer = response.data
+    //       })
+    // }
   }
 
 }
