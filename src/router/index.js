@@ -6,7 +6,7 @@ import Ankeet from '../views/Ankeet'
 import Registreeri from '../views/Registreeri'
 // import Vuetify from 'vuetify/lib/util/colors'
 
-// Vue.use(Vuetify)
+ // Vue.use(Vuetify)
 
 Vue.use(VueRouter)
 
