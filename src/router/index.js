@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import LoginComponent from "../views/login.vue"
+import SecureComponent from "../views/Ankeet.vue"
+//import Home from '../views/Home.vue'
 import MM2022 from "../views/MM2022.vue"
 import Ankeet from '../views/Ankeet'
 import Registreeri from '../views/Registreeri'
@@ -11,10 +13,26 @@ import Registreeri from '../views/Registreeri'
 Vue.use(VueRouter)
 
 const routes = [
+    // {
+    //     path: '/',
+    //     name: 'Home',
+    //     component: Home
+    // },
     {
         path: '/',
-        name: 'Home',
-        component: Home
+        redirect: {
+            name: "login"
+        }
+    },
+    {
+        path: '/login',
+        name: "login",
+        component: LoginComponent
+    },
+    {
+        path: "/Ankeet",
+        name: "Ankeet",
+        component: SecureComponent
     },
     {
         path: '/MM2022',
@@ -34,9 +52,10 @@ const routes = [
         // which is lazy-loaded when the route is visited.
         component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
     },
-    { path: '/Registreeri',
-      name: 'Registreeri',
-      component: Registreeri
+    {
+        path: '/Registreeri',
+        name: 'Registreeri',
+        component: Registreeri
     }
 
 

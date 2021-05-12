@@ -3,11 +3,7 @@
     <h1>Kasutajaks registreerimine</h1>
      <input v-model.number="username" placeholder="Kasutajanimi"/>
       <input v-model.number="password" placeholder="Parool"/>
-      <button v-on:click="register(user)">Registreeri</button>
-          <button v-on:click="login">Logi sisse</button>
-
-
-
+      <button class="btn btn__primary btn__lg" v-on:click="register(user)">Registreeri</button>
   </div>
 </template>
 

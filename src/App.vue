@@ -1,34 +1,179 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/Ankeet">Ankeet</router-link> |
-      <router-link to="/MM2022">MM2022</router-link> |
+    <div align="center" id="nav">
+      <!--      <router-link to="/">Home</router-link> |-->
+      <router-link to="/Ankeet">Ankeet</router-link>
+      |
+      <router-link to="/MM2022">MM2022</router-link>
+      |
       <router-link to="/Registreeri">Registreeri kasutajaks</router-link>
+      |
+      <router-link v-if="authenticated" to="/login" v-on:click.native="logout()" replace>Logout</router-link>
     </div>
-    <router-view/>
+    <router-view @authenticated="setAuthenticated"/>
   </div>
 </template>
 
+<script>
+export default {
+  name: 'App',
+  data() {
+    return {
+      authenticated: false,
+      mockAccount: {
+        username: "nraboy",
+        password: "password"
+      }
+    }
+  },
+  mounted() {
+    if (!this.authenticated) {
+      this.$router.replace({name: "login"});
+    }
+  },
+  methods: {
+    setAuthenticated(status) {
+      this.authenticated = status;
+    },
+    logout() {
+      this.authenticated = false;
+    }
+  }
+}
+</script>
+
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Global styles */
+.btn {
+  padding: 0.8rem 1rem 0.7rem;
+  border: 0.2rem solid #4d4d4d;
+  cursor: pointer;
+  text-transform: capitalize;
+
+}
+
+.btn__danger {
+  color: #fff;
+  background-color: #ca3c3c;
+  border-color: #bd2130;
+}
+
+.btn__filter {
+  border-color: lightgrey;
+}
+
+.btn__danger:focus {
+  outline-color: #c82333;
+}
+
+.btn__primary {
+  color: #fff;
+  background-color: #42b983;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-group > * {
+  flex: 1 1 auto;
+}
+
+.btn-group > * + * {
+  margin-left: 0.8rem;
+}
+
+.label-wrapper {
+  margin: 0;
+  flex: 0 0 100%;
   text-align: center;
-  color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
+[class*="__lg"] {
+  display: inline-block;
+  width: 100%;
+  font-size: 1.9rem;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+[class*="__lg"]:not(:last-child) {
+  margin-bottom: 1rem;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+@media screen and (min-width: 620px) {
+  [class*="__lg"] {
+    font-size: 2.4rem;
+  }
 }
+
+.visually-hidden {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  /*clip-path: rect(1px, 1px, 1px, 1px);*/
+  white-space: nowrap;
+}
+
+[class*="stack"] > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.stack-small > * + * {
+  margin-top: 1.25rem;
+}
+
+.stack-large > * + * {
+  margin-top: 0.5rem;
+}
+
+@media screen and (min-width: 550px) {
+  .stack-small > * + * {
+    margin-top: 1.4rem;
+  }
+
+  .stack-large > * + * {
+    margin-top: 0.5rem;
+  }
+}
+
+/* End global styles */
+#app {
+  background: #fff;
+  margin: 2rem 0 4rem 0;
+  padding: 1rem 1rem;
+  position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2.5rem 5rem 0 rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (min-width: 550px) {
+  #app {
+    padding: 4rem;
+  }
+}
+
+#app > * {
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#app > form {
+  max-width: 100%;
+}
+
+#app h1 {
+  display: block;
+  min-width: 100%;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
 </style>
+
