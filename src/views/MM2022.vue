@@ -1,7 +1,7 @@
 <template>
   <div class="list">
     <h1> Edetabel</h1>
-    <button v-on:click="gameScore()">Refresh</button>
+    <button class="btn btn__primary btn__lg" v-on:click="gameScore()">Refresh</button>
     <table align="center" border="1">
       <tr>
         <th align="center">Kasutaja</th>
