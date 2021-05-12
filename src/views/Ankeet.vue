@@ -5,18 +5,19 @@
     <h3 align="left">Siin on toodud ära kõik alagrupimängud
       <br>
       Ennustamise reeglid on lihtsad: <br>
-      1) Vali endale kasutajanimi (mida kasutad kogu turniiri)<br>
+      1) Vali endale kasutajanimi (mida kasutad kogu turniiri) <br>
       2) Sisesta mängu lahtritesse skoor <br>
       3) Ühele mängule saad teha vaid ühe ennustuse! <br>
       4) Ennustada saad kuni mängu avavileni! <br>
     </h3>
     Siia kirjuta oma kasutajanimi<input v-model.number="username" placeholder="Kasutajanimi"/>
     <table>
-      <tr v-for="game in gameData" v-bind:key="game.gameNumber">Mäng nr {{ game.gameNumber }}
+      <tr class="stack-large" v-for="game in gameData" v-bind:key="game.gameNumber">Mäng nr {{ game.gameNumber }}
         <th>{{ game.text }}</th>
         <input :disabled="game.hidden" v-model.number="game.home" :placeholder=game.text1>
         <input :disabled="game.hidden" v-model.number="game.away" :placeholder=game.text2>
-        <button class="btn btn__primary btn__lg" :disabled="Date.now()>=game.kickOff" v-if="!game.hidden" v-on:click="insert(game)">Esita
+        <button class="btn btn__primary btn__lg" :disabled="Date.now()>=game.kickOff" v-if="!game.hidden"
+                v-on:click="insert(game)">Esita
         </button>
         <th>{{ game.kickOff.toLocaleString() }}</th>
       </tr>

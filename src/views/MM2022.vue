@@ -12,11 +12,6 @@
         <td align="center">{{ userName.score }}</td>
       </tr>
     </table>
-    <input type="text" id="userName1" placeholder="username">
-    <button v-on:click="getPoints()" id="userPoints">Vajuta</button>
-    <table align="center" border="1">
-
-    </table>
   </div>
 </template>
 

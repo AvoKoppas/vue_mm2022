@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
+    <div align="center" id="nav">
+<!--      <router-link to="/">Home</router-link> |-->
       <router-link to="/Ankeet">Ankeet</router-link> |
       <router-link to="/MM2022">MM2022</router-link> |
       <router-link to="/Registreeri">Registreeri kasutajaks</router-link>
@@ -31,7 +31,7 @@
 }
 .btn__primary {
   color: #fff;
-  background-color: #000;
+  background-color: #42b983;
 }
 .btn-group {
   display: flex;
