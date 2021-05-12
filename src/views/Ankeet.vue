@@ -11,6 +11,7 @@
       4) Ennustada saad kuni mängu avavileni! <br>
     </h3>
     Siia kirjuta oma kasutajanimi<input v-model.number="username" placeholder="Kasutajanimi"/>
+    <h3>Ennustus Tegelik tulemus</h3>
     <table>
       <tr class="stack-large" v-for="game in gameData" v-bind:key="game.gameNumber">Mäng nr {{ game.gameNumber }}
         <th>{{ game.text }}</th>

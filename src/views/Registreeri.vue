@@ -4,7 +4,6 @@
      <input v-model.number="username" placeholder="Kasutajanimi"/>
       <input v-model.number="password" placeholder="Parool"/>
       <button class="btn btn__primary btn__lg" v-on:click="register(user)">Registreeri</button>
-
   </div>
 </template>
 
@@ -14,7 +13,8 @@ export default {
     return {
       name: "Registreeri.vue", //kuhu see läheb?
       "text": "Kasutajanimi",
-      "text1": "Parool"
+      "text1": "Parool",
+      "text2": "Logi sisse"
     }
   },
   methods: {
