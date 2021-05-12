@@ -4,13 +4,18 @@
     <button v-on:click="gameScore()">Refresh</button>
     <table align="center" border="1">
       <tr>
-        <th>Kasutaja</th>
+        <th align="center">Kasutaja</th>
         <th align="center">Punktid</th>
       </tr>
       <tr v-for="userName in scoreTable" v-bind:key="userName.userName">
         <td align="center">{{ userName.userName }}</td>
         <td align="center">{{ userName.score }}</td>
       </tr>
+    </table>
+    <input type="text" id="userName1" placeholder="username">
+    <button v-on:click="getPoints()" id="userPoints">Vajuta</button>
+    <table align="center" border="1">
+
     </table>
   </div>
 </template>
@@ -34,7 +39,10 @@ export default {
       'scoreTable': '',
       'scoreAnswer': '',
       'username1': '',
-      'userName': ''
+      'userName': '',
+      'userName1': '',
+      'score1': '',
+      'userPoints': ''
     }
 
   },
@@ -46,6 +54,13 @@ export default {
             this.scoreTable = response.data
           })
     },
+    'getPoints': function () {
+      this.$http.get('http://localhost:8080/scoreUserList/' + this.userName1.value)
+          .then(response => {
+            console.log(response);
+            this.userPoints = response.data
+          })
+    }
     // 'calculate': function () {
     //   this.$http.post('http://localhost:8080/calculateScore/' + this.username1)
     //       .then(response => {
