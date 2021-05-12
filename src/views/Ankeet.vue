@@ -5,6 +5,7 @@
     <h3>All asub küsimustik, mille palun ära täita.
       Kirjuta palun kastidesse mängude lõpptulemused</h3>
     Siia kirjuta oma kasutajanimi<input v-model.number="username" placeholder="Kasutajanimi"/>
+    <h3>Ennustus Tegelik tulemus</h3>
     <table>
       <tr v-for="game in gameData" v-bind:key="game.gameNumber">Mäng nr {{ game.gameNumber }}
         <th>{{ game.text }}</th>
