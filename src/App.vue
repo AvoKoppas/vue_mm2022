@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-    <div align="center" id="nav">
+    <div align="center" id="nav" v-if="authenticated">
       <!--      <router-link to="/">Home</router-link> |-->
       <router-link to="/Ankeet">Ankeet</router-link>
       |
       <router-link to="/MM2022">MM2022</router-link>
       |
-      <router-link to="/Registreeri">Registreeri kasutajaks</router-link>
+<!--      <router-link to="/Registreeri">Registreeri kasutajaks</router-link>-->
       |
-      <router-link v-if="authenticated" to="/login" v-on:click.native="logout()" replace>Logout</router-link>
+      <router-link to="/login" v-on:click.native="logout()" replace>Logout</router-link>
     </div>
     <router-view @authenticated="setAuthenticated"/>
   </div>
@@ -21,8 +21,7 @@ export default {
     return {
       authenticated: false,
       mockAccount: {
-        username: "nraboy",
-        password: "password"
+        password: "salasõna"
       }
     }
   },

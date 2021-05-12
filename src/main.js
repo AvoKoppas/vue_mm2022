@@ -4,7 +4,9 @@ import router from './router'
 import axios from "axios"
 import VueAxios from "vue-axios"
 import './assets/reset.css'
+import Vuex from 'vuex'
 
+Vue.use(Vuex)
 Vue.use(VueAxios, axios)
 Vue.config.productionTip = false
 
