@@ -1,7 +1,7 @@
 <template>
-  <div style="background: lightblue; border:gold" class="ankeet">
+  <div class="ankeet">
     <h1>Mängud</h1>
-    <body style="background-color: seashell; border-bottom: #42b983">
+    <body>
     <h3 align="left">Siin on toodud ära kõik alagrupimängud
       <br>
       Ennustamise reeglid on lihtsad: <br>
@@ -16,9 +16,9 @@
         <th>{{ game.text }}</th>
         <input :disabled="game.hidden" v-model.number="game.home" :placeholder=game.text1>
         <input :disabled="game.hidden" v-model.number="game.away" :placeholder=game.text2>
-        <button :disabled="new Date()>=game.kickOff" v-if="!game.hidden" v-on:click="insert(game)">Esita
+        <button class="btn btn__primary btn__lg" :disabled="Date.now()>=game.kickOff" v-if="!game.hidden" v-on:click="insert(game)">Esita
         </button>
-        <th>{{ game.kickOff }}</th>
+        <th>{{ game.kickOff.toLocaleString() }}</th>
       </tr>
     </table>
     </body>
@@ -39,7 +39,7 @@ export default {
           'text1': 'Türgi',
           'text2': 'Itaalia',
           'hidden': false,
-          'kickOff': new Date('2021-05-11T12:18:00')
+          'kickOff': new Date('2021-06-11 22:00:00')
         },
         {
           'gameNumber': 2,
@@ -302,6 +302,7 @@ export default {
           .then(response => {
             console.log(response);
             game.hidden = true;
+            alert("Aitäh! Ennustus läks kirja mängule " + game.text)
           })
     },
     // 'validateTime': function () {
