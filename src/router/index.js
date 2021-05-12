@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+//import Home from '../views/Home.vue'
 import MM2022 from "../views/MM2022.vue"
 import Ankeet from '../views/Ankeet'
 import Registreeri from '../views/Registreeri'
@@ -11,11 +11,11 @@ import Registreeri from '../views/Registreeri'
 Vue.use(VueRouter)
 
 const routes = [
-    {
-        path: '/',
-        name: 'Home',
-        component: Home
-    },
+    // {
+    //     path: '/',
+    //     name: 'Home',
+    //     component: Home
+    // },
     {
         path: '/MM2022',
         name: 'MM2022',
