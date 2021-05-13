@@ -5,7 +5,7 @@
       <router-link to="/Ankeet">Ankeet</router-link>
       |
       <router-link to="/MM2022">MM2022</router-link>
-      |
+
 <!--      <router-link to="/Registreeri">Registreeri kasutajaks</router-link>-->
       |
       <router-link to="/login" v-on:click.native="logout()" replace>Logout</router-link>
