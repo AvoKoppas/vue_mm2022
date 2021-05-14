@@ -11,7 +11,6 @@
       4) Ennustada saad kuni mängu avavileni! <br>
     </h3>
     Siia kirjuta oma kasutajanimi<input v-model.number="username" placeholder="Kasutajanimi"/>
-    <h3>Ennustus Tegelik tulemus</h3>
     <table>
       <tr class="stack-large" v-for="game in gameData" v-bind:key="game.gameNumber">Mäng nr {{ game.gameNumber }}
         <th>{{ game.text }}</th>
@@ -299,22 +298,19 @@ export default {
   },
   methods: {
     'insert': function (game) {
-      this.$http.post("http://localhost:8080/insert/" +
+      this.$http.post("/api/insert/" +
           this.username + '/' + game.gameNumber + '/' + game.home + '/' + game.away)
           .then(response => {
             console.log(response);
             game.hidden = true;
             alert("Aitäh! Ennustus läks kirja mängule " + game.text)
           })
+        .catch(error => {
+      if (error.response.status === 500) {
+        alert("Sa oled sellele mängule juba ennustuse teinud")
+      }
+         })
     },
-    // 'validateTime': function () {
-    //   let today = new Date()
-    //   if (today <=) {
-    //     return true
-    //   } else {
-    //     return false
-    //   }
-    // }
   }
 }
 

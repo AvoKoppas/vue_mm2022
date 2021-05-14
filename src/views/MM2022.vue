@@ -43,14 +43,14 @@ export default {
   },
   methods: {
     'gameScore': function () {
-      this.$http.get('http://localhost:8080/scoreList/')
+      this.$http.get('/api/scoreList/')
           .then(response => {
             console.log(response);
             this.scoreTable = response.data
           })
     },
     'getPoints': function () {
-      this.$http.get('http://localhost:8080/scoreUserList/' + this.userName1.value)
+      this.$http.get('/api/scoreUserList/' + this.userName1.value)
           .then(response => {
             console.log(response);
             this.userPoints = response.data
