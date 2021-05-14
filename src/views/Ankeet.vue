@@ -305,15 +305,14 @@ export default {
             game.hidden = true;
             alert("Aitäh! Ennustus läks kirja mängule " + game.text)
           })
-        .catch(error => {
-      if (error.response.status === 500) {
-        alert("Sa oled sellele mängule juba ennustuse teinud")
-      }
-         })
+          .catch(error => {
+            if (error.response.status === 500) {
+              alert("Sa oled sellele mängule juba ennustuse teinud")
+            }
+          })
     },
   }
 }
-
 
 </script>
 

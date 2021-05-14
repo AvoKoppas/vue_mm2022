@@ -13,12 +13,7 @@ import Ankeet from '../views/Ankeet'
 Vue.use(VueRouter)
 
 export default new VueRouter({
-    routes:  [
-        // {
-        //     path: '/',
-        //     name: 'Home',
-        //     component: Home
-        // },
+    routes: [
         {
             path: '/',
             redirect: {
@@ -53,10 +48,5 @@ export default new VueRouter({
             // which is lazy-loaded when the route is visited.
             component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
         },
-        // {
-        //     path: '/Registreeri',
-        //     name: 'Registreeri',
-        //     component: Registreeri
-        // }
     ]
 })
