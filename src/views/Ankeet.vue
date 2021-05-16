@@ -4,11 +4,30 @@
     <body>
     <h3 align="left">Siin on toodud ära kõik alagrupimängud
       <br>
-      Ennustamise reeglid on lihtsad: <br>
-      1) Vali endale kasutajanimi (mida kasutad kogu turniiri) <br>
-      2) Sisesta mängu lahtritesse skoor <br>
-      3) Ühele mängule saad teha vaid ühe ennustuse! <br>
-      4) Ennustada saad kuni mängu avavileni! <br>
+      <tr>
+        Ennustamise reeglid on lihtsad:
+      </tr>
+      <br>
+      <th>
+        1) Vali endale kasutajanimi (mida kasutad kogu turniiri)
+      </th>
+      <br>
+      <th>
+        2) Sisesta mängu lahtritesse skoor
+      </th>
+      <br>
+      <th>3) Ühele mängule saad teha vaid ühe ennustuse!
+      </th>
+      <br>
+      <th>
+        4) Ennustada saad kuni mängu avavileni (märgitud vastava mängu juures)!
+      </th>
+      <br>
+
+      5) Punktiarvestus: õige skoor = 3p<br>
+      õige võitja või viigi ennustamine = 1p
+
+
     </h3>
     Siia kirjuta oma kasutajanimi<input v-model.number="username" placeholder="Kasutajanimi"/>
     <table>
